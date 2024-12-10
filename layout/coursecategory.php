@@ -11,8 +11,8 @@ if (isloggedin()) {
 
     $modules = new stdClass();
 
-    try{
-        $course = $DB->get_record('course', array('idnumber' => 'FA'));
+    /*try{
+        $course = $DB->get_record('course', array('idnumber' => 'PS'));
         
         $courseModulesObject = get_fast_modinfo($course->id);
         $courseModules = $courseModulesObject->get_cms();
@@ -25,7 +25,7 @@ if (isloggedin()) {
         }
     }catch(Exception $e){
         echo $e->getMessage();
-    }
+    }*/
 
     // Add block button in editing mode.
     $addblockbutton = $OUTPUT->addblockbutton();
@@ -90,11 +90,11 @@ if (isloggedin()) {
         'headercontent' => $headercontent,
         'addblockbutton' => $addblockbutton,
         'contentcategory' => $OUTPUT->main_content(),
-        'logofooter' => $OUTPUT->image_url('FOSlogo-footer', 'theme_fos_publicSpace'),
-        'modules' => $modules
+        'logofooter' => $OUTPUT->image_url('FOSlogo-footer', 'theme_fos_publicspace'),
+        //'modules' => $modules
 
     ];
-    echo $OUTPUT->render_from_template('theme_fos_publicSpace/coursecategory', $templatecontext);
+    echo $OUTPUT->render_from_template('theme_fos_publicspace/coursecategory', $templatecontext);
 } else {
     redirect(get_login_url());
 }
